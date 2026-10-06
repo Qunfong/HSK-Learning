@@ -2,7 +2,13 @@
 # Bump V after changing anything in assets/, so browsers fetch the new files.
 import io, os
 
-V = 4
+V = 5
+BRAND, SEAL = "HSK Learning", "汉"
+FOOTER = "Oefenmateriaal, geen officiële HSK-vragen of -scores. Je voortgang staat alleen in deze browser."
+SITE_JS = ""  # e.g. '<script>window.SITE={...}</script>' to override app.js defaults
+H1 = "Chinees leren voor de HSK, vanaf niveau 3"
+LEAD = ("Korte grammaticalessen in het Nederlands, met Chinese voorbeelden, pinyin en uitspraak. Elke les: eerst gokken, "
+        "dan het idee, dan oefenen. Wat je gehaald hebt, komt later terug om te herhalen.")
 LEVELS = [  # (data key, label, folder, topics on the home card)
     ("hsk3", "HSK 3", "hsk3", "把, resultaat, 比, 过, 越来越, 被"),
     ("hsk4", "HSK 4", "hsk4", "是……的, 连……都, 不但……而且, 即使……也, 除了, 听得懂"),
@@ -16,7 +22,7 @@ def page(prefix, title, body, scripts=True):
     tags = ""
     if scripts:
         tags = "".join('<script src="%sassets/data/%s.js?v=%d"></script>' % (prefix, k, V) for k, *_ in LEVELS)
-        tags += '<script src="%sassets/app.js?v=%d"></script>' % (prefix, V)
+        tags += SITE_JS + '<script src="%sassets/app.js?v=%d"></script>' % (prefix, V)
     return """<!doctype html>
 <html lang="nl">
 <head>
@@ -27,15 +33,15 @@ def page(prefix, title, body, scripts=True):
 </head>
 <body>
 <header class="site"><div class="wrap">
-  <a class="brand" href="{p}index.html"><span class="seal">汉</span> HSK Learning</a>
+  <a class="brand" href="{p}index.html"><span class="seal">{seal}</span> {brand}</a>
   <nav><a href="{p}index.html#niveaus">Niveaus</a><a href="{p}herhaling.html">Herhalen</a><a href="{p}documentatie.html">Documentatie</a></nav>
 </div></header>
 <main class="wrap">
 {body}
-<footer>Oefenmateriaal, geen officiële HSK-vragen of -scores. Je voortgang staat alleen in deze browser.</footer>
+<footer>{footer}</footer>
 </main>
 {tags}</body></html>
-""".format(title=title, p=prefix, v=V, body=body.strip(), tags=tags)
+""".format(footer=FOOTER, seal=SEAL, brand=BRAND, title=title, p=prefix, v=V, body=body.strip(), tags=tags)
 
 
 def write(path, text):
@@ -48,9 +54,9 @@ cards = "\n".join(
     '  <a class="card" href="%s/"><div class="big">%s</div><p class="muted small zh">%s</p><span class="tag ok">6 lessen</span></a>' % (d, label, topics)
     for _, label, d, topics in LEVELS
 )
-write("index.html", page("", "HSK Learning", """
-<h1>Chinees leren voor de HSK, vanaf niveau 3</h1>
-<p class="lead">Korte grammaticalessen in het Nederlands, met Chinese voorbeelden, pinyin en uitspraak. Elke les: eerst gokken, dan het idee, dan oefenen. Wat je gehaald hebt, komt later terug om te herhalen.</p>
+write("index.html", page("", BRAND, """
+<h1>%s</h1>
+<p class="lead">%s</p>
 
 <h2 id="niveaus">Kies je niveau</h2>
 <div class="grid">
@@ -62,21 +68,21 @@ write("index.html", page("", "HSK Learning", """
 <ol>
   <li><b>Gok eerst.</b> Eén vraag over het nieuwe patroon, vóór de uitleg. Telt niet mee.</li>
   <li><b>Het idee.</b> Welk probleem lost het patroon op, een plaatje van de zinsbouw, en de valkuil.</li>
-  <li><b>Voorbeelden en een dialoog.</b> Met pinyin (uit te zetten) en uitspraak via je browser.</li>
+  <li><b>Voorbeelden, woorden en een dialoog.</b> Met uitspraakhulp (uit te zetten) en uitspraak via je browser.</li>
   <li><b>Oefenen.</b> Meerkeuze, zinnen bouwen en een eigen zin. Fout? Je krijgt uitleg en probeert opnieuw.</li>
   <li><b>Herhalen.</b> Na 2 dagen komen nieuwe vragen terug. Goed: de pauze verdubbelt. Fout: morgen opnieuw.</li>
 </ol>
 </div>
 <p>Alle patronen en woorden op één plek: <a href="documentatie.html">Documentatie</a>.</p>
-""" % cards, scripts=False))
+""" % (H1, LEAD, cards), scripts=False))
 
-write("herhaling.html", page("", "Herhalen · HSK Learning", '<div id="app" data-page="review"><p>Laden...</p></div>'))
-write("documentatie.html", page("", "Documentatie · HSK Learning", '<div id="app" data-page="docs"><p>Laden...</p></div>'))
+write("herhaling.html", page("", "Herhalen · " + BRAND, '<div id="app" data-page="review"><p>Laden...</p></div>'))
+write("documentatie.html", page("", "Documentatie · " + BRAND, '<div id="app" data-page="docs"><p>Laden...</p></div>'))
 
 for key, label, d, _ in LEVELS:
-    write(d + "/index.html", page("../", label + " · HSK Learning", """
+    write(d + "/index.html", page("../", label + " · " + BRAND, """
 <h1>%s</h1>
-<p class="lead">Zes korte lessen, elk één grammaticapatroon. Doe er één per dag, en herhaal wat terugkomt.</p>
+<p class="lead">Zes korte lessen, elk één grammaticapatroon met tien woorden. Doe er één per dag, en herhaal wat terugkomt.</p>
 <div id="app" data-page="level" data-level="%s"><p>Laden...</p></div>
 """ % (label, key)))
     write(d + "/les.html", page("../", "Les · " + label, """

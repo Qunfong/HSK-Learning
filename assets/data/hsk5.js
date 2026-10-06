@@ -1,4 +1,4 @@
-// HSK 5 lessons. Grammar only for now; vocabulary comes later (vocab: []).
+// HSK 5 lessons. Vocabulary is level-appropriate practice, not a certified official HSK 3.0 list.
 // Question types: mc (answer = index), order (tokens in the right order), open (self-check with model answers).
 // "review" questions never appear in the lesson itself; they come back on the review page.
 window.HSK = window.HSK || {};
@@ -32,7 +32,12 @@ window.HSK.hsk5 = {
         { cn: "无论工作多忙，她每天都给妈妈打电话。", py: "Wúlùn gōngzuò duō máng, tā měitiān dōu gěi māma dǎ diànhuà.", nl: "Hoe druk haar werk ook is, ze belt elke dag haar moeder." },
         { cn: "不管别人怎么说，我也不改变主意。", py: "Bùguǎn biérén zěnme shuō, wǒ yě bù gǎibiàn zhǔyi.", nl: "Wat anderen ook zeggen, ik verander niet van mening." }
       ],
-      vocab: [],
+      vocab: [
+        ["无论", "wúlùn", "(ongeacht, hoe ... ook)"], ["不管", "bùguǎn", "(ongeacht, informeel)"], ["刮风", "guāfēng", "waaien"],
+        ["改变", "gǎibiàn", "veranderen"], ["主意", "zhǔyi", "idee, plan"], ["举行", "jǔxíng", "houden (evenement)"],
+        ["按时", "ànshí", "op tijd"], ["观众", "guānzhòng", "toeschouwers, publiek"], ["体育馆", "tǐyùguǎn", "sporthal, stadion"],
+        ["屋顶", "wūdǐng", "dak"]
+      ],
       dialogue: [
         ["A", "明天可能会下大雨，比赛还举行吗？", "Míngtiān kěnéng huì xià dàyǔ, bǐsài hái jǔxíng ma?", "Morgen gaat het misschien hard regenen. Gaat de wedstrijd nog door?"],
         ["B", "无论天气怎么样，比赛都会按时举行。", "Wúlùn tiānqì zěnmeyàng, bǐsài dōu huì ànshí jǔxíng.", "Hoe het weer ook is, de wedstrijd begint op tijd."],
@@ -91,7 +96,12 @@ window.HSK.hsk5 = {
         { cn: "既然大家都同意，那就这么办。", py: "Jìrán dàjiā dōu tóngyì, nà jiù zhème bàn.", nl: "Iedereen is het eens, dus dan doen we het zo." },
         { cn: "你既然知道错了，就应该道歉。", py: "Nǐ jìrán zhīdào cuò le, jiù yīnggāi dàoqiàn.", nl: "Nu je weet dat je fout zat, moet je ook sorry zeggen." }
       ],
-      vocab: [],
+      vocab: [
+        ["既然", "jìrán", "(nu ... toch)"], ["决定", "juédìng", "beslissen"], ["同意", "tóngyì", "het eens zijn"],
+        ["道歉", "dàoqiàn", "sorry zeggen"], ["无聊", "wúliáo", "saai, verveeld"], ["爬山", "páshān", "bergwandelen"],
+        ["出发", "chūfā", "vertrekken"], ["不过", "búguò", "(maar, echter)"], ["待", "dāi", "blijven, verblijven"],
+        ["座", "zuò", "(maatwoord voor bergen, gebouwen)"]
+      ],
       dialogue: [
         ["A", "这个周末我想去爬山，可是一个人有点儿无聊。", "Zhège zhōumò wǒ xiǎng qù páshān, kěshì yí ge rén yǒudiǎnr wúliáo.", "Dit weekend wil ik de bergen in, maar alleen is wat saai."],
         ["B", "我周末也没事。", "Wǒ zhōumò yě méi shì.", "Ik heb dit weekend ook niets te doen."],
@@ -150,7 +160,12 @@ window.HSK.hsk5 = {
         { cn: "我宁可早点儿起床，也不想迟到。", py: "Wǒ nìngkě zǎo diǎnr qǐchuáng, yě bù xiǎng chídào.", nl: "Ik sta liever vroeg op dan dat ik te laat kom." },
         { cn: "她宁可少睡一会儿，也要把报告写完。", py: "Tā nìngkě shǎo shuì yíhuìr, yě yào bǎ bàogào xiěwán.", nl: "Ze slaapt liever wat minder, als het rapport maar af komt." }
       ],
-      vocab: [],
+      vocab: [
+        ["宁可", "nìngkě", "(liever)"], ["质量", "zhìliàng", "kwaliteit"], ["饿", "è", "honger hebben"],
+        ["快餐", "kuàicān", "fastfood"], ["报告", "bàogào", "rapport, verslag"], ["打车", "dǎchē", "een taxi nemen"],
+        ["浪费", "làngfèi", "verspillen"], ["聚会", "jùhuì", "feest, bijeenkomst"], ["脏", "zāng", "vies"],
+        ["外卖", "wàimài", "bezorgmaaltijd"]
+      ],
       dialogue: [
         ["A", "外面雨这么大，我们打车回去吧？", "Wàimiàn yǔ zhème dà, wǒmen dǎchē huíqu ba?", "Het regent zo hard. Zullen we een taxi naar huis nemen?"],
         ["B", "现在打车要等一个小时。我宁可坐地铁，也不在这儿等。", "Xiànzài dǎchē yào děng yí ge xiǎoshí. Wǒ nìngkě zuò dìtiě, yě bú zài zhèr děng.", "Op een taxi wacht je nu een uur. Ik neem liever de metro dan dat ik hier wacht."],
@@ -209,7 +224,12 @@ window.HSK.hsk5 = {
         { cn: "他难道是你哥哥吗？你们一点儿都不像。", py: "Tā nándào shì nǐ gēge ma? Nǐmen yìdiǎnr dōu bú xiàng.", nl: "Is hij echt je broer? Jullie lijken helemaal niet op elkaar." },
         { cn: "难道我说错了吗？", py: "Nándào wǒ shuōcuò le ma?", nl: "Heb ik soms iets verkeerds gezegd?" }
       ],
-      vocab: [],
+      vocab: [
+        ["难道", "nándào", "(toch niet, soms)"], ["简单", "jiǎndān", "eenvoudig"], ["像", "xiàng", "lijken op"],
+        ["接", "jiē", "ophalen"], ["完全", "wánquán", "helemaal"], ["消息", "xiāoxi", "bericht, nieuws"],
+        ["发", "fā", "versturen"], ["记住", "jìzhù", "onthouden"], ["马上", "mǎshàng", "meteen"],
+        ["听说", "tīngshuō", "horen (dat)"]
+      ],
       dialogue: [
         ["A", "你怎么还在睡觉？", "Nǐ zěnme hái zài shuìjiào?", "Waarom lig je nog te slapen?"],
         ["B", "今天是星期六啊。", "Jīntiān shì xīngqīliù a.", "Het is toch zaterdag."],
@@ -268,7 +288,12 @@ window.HSK.hsk5 = {
         { cn: "你早点儿回家，免得妈妈担心。", py: "Nǐ zǎo diǎnr huíjiā, miǎnde māma dānxīn.", nl: "Ga wat vroeger naar huis, zodat je moeder zich geen zorgen maakt." },
         { cn: "多穿点儿衣服，免得感冒。", py: "Duō chuān diǎnr yīfu, miǎnde gǎnmào.", nl: "Trek wat meer kleren aan, zodat je niet verkouden wordt." }
       ],
-      vocab: [],
+      vocab: [
+        ["以免", "yǐmiǎn", "(om te voorkomen dat)"], ["免得", "miǎnde", "(zodat niet, spreektaal)"], ["地址", "dìzhǐ", "adres"],
+        ["发生", "fāshēng", "gebeuren"], ["事故", "shìgù", "ongeluk"], ["担心", "dānxīn", "zich zorgen maken"],
+        ["着急", "zháojí", "gehaast, ongerust"], ["身份证", "shēnfènzhèng", "identiteitskaart"], ["影响", "yǐngxiǎng", "beïnvloeden, storen"],
+        ["闹钟", "nàozhōng", "wekker"]
+      ],
       dialogue: [
         ["A", "明天的考试八点开始，你几点出发？", "Míngtiān de kǎoshì bā diǎn kāishǐ, nǐ jǐ diǎn chūfā?", "Het examen morgen begint om acht uur. Hoe laat vertrek je?"],
         ["B", "七点吧。", "Qī diǎn ba.", "Om zeven uur, denk ik."],
@@ -327,7 +352,12 @@ window.HSK.hsk5 = {
         { cn: "尽管他学了三年汉语，可是还听不懂新闻。", py: "Jǐnguǎn tā xuéle sān nián Hànyǔ, kěshì hái tīng bu dǒng xīnwén.", nl: "Hoewel hij drie jaar Chinees heeft geleerd, verstaat hij het nieuws nog niet." },
         { cn: "尽管很忙，她每天还是去健身房。", py: "Jǐnguǎn hěn máng, tā měitiān háishi qù jiànshēnfáng.", nl: "Hoewel ze het druk heeft, gaat ze toch elke dag naar de sportschool." }
       ],
-      vocab: [],
+      vocab: [
+        ["尽管", "jǐnguǎn", "(hoewel)"], ["仍然", "réngrán", "(nog steeds, toch)"], ["辛苦", "xīnkǔ", "zwaar, vermoeiend"],
+        ["新闻", "xīnwén", "nieuws"], ["健身房", "jiànshēnfáng", "sportschool"], ["通过", "tōngguò", "slagen voor"],
+        ["恭喜", "gōngxǐ", "gefeliciteerd"], ["准备", "zhǔnbèi", "voorbereiden"], ["充分", "chōngfèn", "grondig, voldoende"],
+        ["邻居", "línjū", "buren"]
+      ],
       dialogue: [
         ["A", "听说你通过HSK五级了，恭喜！", "Tīngshuō nǐ tōngguò HSK wǔ jí le, gōngxǐ!", "Ik hoorde dat je voor HSK 5 geslaagd bent. Gefeliciteerd!"],
         ["B", "谢谢！尽管考试很难，但是我准备得很充分。", "Xièxie! Jǐnguǎn kǎoshì hěn nán, dànshì wǒ zhǔnbèi de hěn chōngfèn.", "Dank je! Het examen was moeilijk, maar ik was goed voorbereid."],

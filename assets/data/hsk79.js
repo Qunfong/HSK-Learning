@@ -31,7 +31,9 @@ window.HSK.hsk79 = {
         { cn: "鉴于以上原因，我们建议推迟这个项目。", py: "Jiànyú yǐshàng yuányīn, wǒmen jiànyì tuīchí zhège xiàngmù.", nl: "Om bovenstaande redenen adviseren wij dit project uit te stellen." },
         { cn: "鉴于该产品存在安全隐患，厂家已全部召回。", py: "Jiànyú gāi chǎnpǐn cúnzài ānquán yǐnhuàn, chǎngjiā yǐ quánbù zhàohuí.", nl: "Gezien de veiligheidsrisico's van het product heeft de fabrikant alles teruggeroepen." }
       ],
-      vocab: [],
+      vocab: [
+        ["鉴于", "jiànyú", "(gezien, formeel)"], ["暂停", "zàntíng", "tijdelijk stopzetten"], ["招聘", "zhāopìn", "personeel werven"], ["推迟", "tuīchí", "uitstellen"], ["隐患", "yǐnhuàn", "verborgen risico"], ["召回", "zhàohuí", "terugroepen"], ["局势", "júshì", "situatie, toestand"], ["采取", "cǎiqǔ", "nemen (maatregel)"], ["谨慎", "jǐnshèn", "voorzichtig"], ["措施", "cuòshī", "maatregel"]
+      ],
       dialogue: [
         ["A", "最近订单明显减少，大家有什么看法？", "Zuìjìn dìngdān míngxiǎn jiǎnshǎo, dàjiā yǒu shénme kànfǎ?", "De orders zijn de laatste tijd duidelijk gedaald. Wat vinden jullie?"],
         ["B", "鉴于目前的局势，我建议暂停新项目。", "Jiànyú mùqián de júshì, wǒ jiànyì zàntíng xīn xiàngmù.", "Gezien de huidige situatie stel ik voor nieuwe projecten te pauzeren."],
@@ -90,7 +92,9 @@ window.HSK.hsk79 = {
         { cn: "以中国为例，城市人口增长很快。", py: "Yǐ Zhōngguó wéi lì, chéngshì rénkǒu zēngzhǎng hěn kuài.", nl: "Neem China als voorbeeld: de stadsbevolking groeit snel." },
         { cn: "该地区的经济以农业为主。", py: "Gāi dìqū de jīngjì yǐ nóngyè wéi zhǔ.", nl: "De economie van deze regio draait vooral op landbouw." }
       ],
-      vocab: [],
+      vocab: [
+        ["以……为……", "yǐ……wéi……", "(X als Y nemen, formeel)"], ["始终", "shǐzhōng", "altijd, steeds"], ["宗旨", "zōngzhǐ", "missie, doelstelling"], ["改革", "gǎigé", "hervorming"], ["效率", "xiàolǜ", "efficiëntie"], ["农业", "nóngyè", "landbouw"], ["缩短", "suōduǎn", "verkorten"], ["重点", "zhòngdiǎn", "zwaartepunt"], ["扩大", "kuòdà", "uitbreiden"], ["海外", "hǎiwài", "buitenland"]
+      ],
       dialogue: [
         ["记者", "贵公司的宗旨是什么？", "Guì gōngsī de zōngzhǐ shì shénme?", "Wat is de missie van uw bedrijf?"],
         ["经理", "我们始终以客户为中心。", "Wǒmen shǐzhōng yǐ kèhù wéi zhōngxīn.", "Wij stellen altijd de klant centraal."],
@@ -149,7 +153,9 @@ window.HSK.hsk79 = {
         { cn: "您的申请已予以批准。", py: "Nín de shēnqǐng yǐ yǔyǐ pīzhǔn.", nl: "Uw aanvraag is goedgekeurd." },
         { cn: "材料不全的申请，一律不予受理。", py: "Cáiliào bù quán de shēnqǐng, yílǜ bù yǔ shòulǐ.", nl: "Aanvragen met onvolledige stukken worden niet in behandeling genomen." }
       ],
-      vocab: [],
+      vocab: [
+        ["予以", "yǔyǐ", "(verlenen, toepassen; formeel)"], ["不予", "bù yǔ", "(niet verlenen, formeel)"], ["处罚", "chǔfá", "bestraffen"], ["违反", "wéifǎn", "overtreden"], ["批准", "pīzhǔn", "goedkeuren"], ["受理", "shòulǐ", "in behandeling nemen"], ["一律", "yílǜ", "zonder uitzondering"], ["依法", "yīfǎ", "volgens de wet"], ["赔偿", "péicháng", "schadevergoeding"], ["逾期", "yúqī", "te laat, verlopen"]
+      ],
       dialogue: [
         ["记者", "对于这次食品安全问题，政府会怎么处理？", "Duìyú zhè cì shípǐn ānquán wèntí, zhèngfǔ huì zěnme chǔlǐ?", "Hoe gaat de overheid om met dit voedselveiligheidsprobleem?"],
         ["发言人", "我们高度关注此事。对违法企业，将依法予以处罚。", "Wǒmen gāodù guānzhù cǐ shì. Duì wéifǎ qǐyè, jiāng yīfǎ yǔyǐ chǔfá.", "Wij volgen deze zaak nauwlettend. Bedrijven die de wet overtreden, worden volgens de wet bestraft."],
@@ -206,7 +212,9 @@ window.HSK.hsk79 = {
         { cn: "他的研究在中国乃至全世界都很有影响。", py: "Tā de yánjiū zài Zhōngguó nǎizhì quán shìjiè dōu hěn yǒu yǐngxiǎng.", nl: "Zijn onderzoek heeft veel invloed in China en zelfs in de hele wereld." },
         { cn: "这个错误可能造成几个月乃至几年的损失。", py: "Zhège cuòwù kěnéng zàochéng jǐ ge yuè nǎizhì jǐ nián de sǔnshī.", nl: "Deze fout kan maanden en zelfs jaren aan schade veroorzaken." }
       ],
-      vocab: [],
+      vocab: [
+        ["乃至", "nǎizhì", "(en zelfs, formeel)"], ["行业", "hángyè", "sector, branche"], ["污染", "wūrǎn", "vervuiling"], ["后代", "hòudài", "nakomelingen"], ["造成", "zàochéng", "veroorzaken"], ["损失", "sǔnshī", "verlies, schade"], ["人工智能", "réngōng zhìnéng", "kunstmatige intelligentie"], ["医疗", "yīliáo", "gezondheidszorg"], ["终身", "zhōngshēn", "levenslang"], ["范围", "fànwéi", "reikwijdte"]
+      ],
       dialogue: [
         ["主持人", "您怎么看人工智能的发展？", "Nín zěnme kàn réngōng zhìnéng de fāzhǎn?", "Hoe kijkt u naar de ontwikkeling van AI?"],
         ["教授", "它会影响教育、医疗乃至整个社会。", "Tā huì yǐngxiǎng jiàoyù, yīliáo nǎizhì zhěnggè shèhuì.", "Het zal onderwijs, zorg en zelfs de hele samenleving beïnvloeden."],
@@ -266,7 +274,9 @@ window.HSK.hsk79 = {
         { cn: "唯有通过考试，才能获得证书。", py: "Wéiyǒu tōngguò kǎoshì, cái néng huòdé zhèngshū.", nl: "Alleen wie het examen haalt, krijgt het certificaat." },
         { cn: "唯有如此，我们才能赢得信任。", py: "Wéiyǒu rúcǐ, wǒmen cái néng yíngdé xìnrèn.", nl: "Alleen zo kunnen we vertrouwen winnen." }
       ],
-      vocab: [],
+      vocab: [
+        ["唯有", "wéiyǒu", "(alleen als, formeel)"], ["创新", "chuàngxīn", "innoveren"], ["生存", "shēngcún", "overleven"], ["双方", "shuāngfāng", "beide partijen"], ["谈判", "tánpàn", "onderhandeling"], ["分歧", "fēnqí", "meningsverschil"], ["让步", "ràngbù", "toegeven"], ["达成", "dáchéng", "bereiken (akkoord)"], ["协议", "xiéyì", "overeenkomst"], ["如此", "rúcǐ", "zo (formeel)"]
+      ],
       dialogue: [
         ["A", "这次谈判很困难，双方分歧很大。", "Zhè cì tánpàn hěn kùnnan, shuāngfāng fēnqí hěn dà.", "Deze onderhandeling is lastig. De partijen staan ver uit elkaar."],
         ["B", "是的。唯有互相让步，才能达成协议。", "Shì de. Wéiyǒu hùxiāng ràngbù, cái néng dáchéng xiéyì.", "Ja. Alleen als we allebei toegeven, komen we tot een akkoord."],
@@ -325,7 +335,9 @@ window.HSK.hsk79 = {
         { cn: "倘若没有大家的支持，这个项目就不可能完成。", py: "Tǎngruò méiyǒu dàjiā de zhīchí, zhège xiàngmù jiù bù kěnéng wánchéng.", nl: "Zonder de steun van iedereen kan dit project niet worden voltooid." },
         { cn: "倘若天气良好，活动便在室外举行。", py: "Tǎngruò tiānqì liánghǎo, huódòng biàn zài shìwài jǔxíng.", nl: "Indien het weer goed is, vindt de activiteit buiten plaats." }
       ],
-      vocab: [],
+      vocab: [
+        ["倘若", "tǎngruò", "(indien, formeel)"], ["便", "biàn", "(dan, formeel voor 就)"], ["违约", "wéiyuē", "contractbreuk plegen"], ["终止", "zhōngzhǐ", "beëindigen"], ["合同", "hétong", "contract"], ["对方", "duìfāng", "wederpartij"], ["交货", "jiāohuò", "leveren"], ["延迟", "yánchí", "vertraging"], ["条款", "tiáokuǎn", "clausule"], ["支付", "zhīfù", "betalen"]
+      ],
       dialogue: [
         ["律师", "合同第五条写得很清楚。", "Hétong dì wǔ tiáo xiě de hěn qīngchu.", "Artikel vijf van het contract is heel duidelijk."],
         ["客户", "倘若对方没有按时交货，我们怎么办？", "Tǎngruò duìfāng méiyǒu ànshí jiāohuò, wǒmen zěnme bàn?", "Wat doen we als de wederpartij niet op tijd levert?"],

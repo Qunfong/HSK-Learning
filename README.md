@@ -12,7 +12,7 @@ Lesopbouw volgt de HSK Tutor-skill (Leren → Oefenen → Herhalen) en de Tutor-
 
 ## Structuur
 - `assets/data/<niveau>.js` - lessen per niveau als data (hsk3, hsk4, hsk5, hsk6, hsk79). Nieuwe les = nieuw object in `lessons`.
-  `vocab` mag voorlopig leeg zijn: de focus ligt op grammatica, woordenlijsten volgen later.
+  `vocab` is optioneel: een les zonder woorden slaat het woordenblok over.
 - `assets/app.js` - rendering, oefeningen, voortgang (localStorage), herhaling, documentatie.
 - `tools/build_pages.py` - genereert alle HTML-pagina's. Nieuw niveau: toevoegen aan `LEVELS` en opnieuw draaien.
 - `tools/validate.js` - controleert de lesdata: `node tools/validate.js assets/data/*.js`.

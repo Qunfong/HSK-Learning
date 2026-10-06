@@ -1,8 +1,14 @@
 (function () {
   "use strict";
 
+  // ---------- site settings (window.SITE overrides these; defaults are the Chinese site) ----------
+  var CFG = Object.assign({
+    key: "hsk-learning-v1", lang: "zh-CN", voice: /^zh/i, rom: "pinyin", language: "Chinees", unit: "karakter", sep: "",
+    listNote: "Dit is geen officiële HSK 3.0-woordenlijst.", first: "hsk3/les.html?id=01", firstLabel: "HSK 3 · les 1"
+  }, window.SITE || {});
+
   // ---------- storage (progress lives only in this browser) ----------
-  var KEY = "hsk-learning-v1";
+  var KEY = CFG.key;
   function load() {
     try { return JSON.parse(localStorage.getItem(KEY)) || { lessons: {}, rules: {}, prefs: {} }; }
     catch (e) { return { lessons: {}, rules: {}, prefs: {} }; }
@@ -22,7 +28,7 @@
 
   // ---------- helpers ----------
   function esc(s) { return String(s).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;"); }
-  var HAN = /[㐀-鿿，。？！…“”]+/g;
+  var HAN = /[㐀-鿿，。？！…“”ᄀ-ᇿ㄰-㆏가-힣]+/g;
   function zh(s) { return esc(s).replace(HAN, function (m) { return '<span class="zh">' + m + "</span>"; }); }
   function el(html) { var t = document.createElement("template"); t.innerHTML = html.trim(); return t.content.firstChild; }
 
@@ -48,8 +54,8 @@
     var b = e.target.closest && e.target.closest("[data-say]");
     if (!b || !canSpeak) return;
     var u = new SpeechSynthesisUtterance(b.getAttribute("data-say"));
-    u.lang = "zh-CN"; u.rate = 0.85;
-    var v = speechSynthesis.getVoices().filter(function (x) { return /^zh(-|_)?(CN|Hans)?/i.test(x.lang); })[0];
+    u.lang = CFG.lang; u.rate = 0.85;
+    var v = speechSynthesis.getVoices().filter(function (x) { return CFG.voice.test(x.lang); })[0];
     if (v) u.voice = v;
     speechSynthesis.cancel(); speechSynthesis.speak(u);
   });
@@ -57,7 +63,7 @@
   // ---------- pinyin toggle ----------
   function applyPinyin() { document.body.classList.toggle("no-py", state.prefs.pinyin === false); }
   function pinyinToggle() {
-    return '<label><input type="checkbox" id="pytoggle"' + (state.prefs.pinyin === false ? "" : " checked") + "> pinyin tonen</label>";
+    return '<label><input type="checkbox" id="pytoggle"' + (state.prefs.pinyin === false ? "" : " checked") + "> " + CFG.rom + " tonen</label>";
   }
   document.addEventListener("change", function (e) {
     if (e.target.id === "pytoggle") { state.prefs.pinyin = e.target.checked; save(state); applyPinyin(); }
@@ -92,7 +98,7 @@
   }
 
   function orderWidget(q, seed, onDone, label) {
-    var answer = q.tokens.map(function (t) { return t[0]; }).join("");
+    var answer = q.tokens.map(function (t) { return t[0]; }).join(CFG.sep);
     var box = el('<div class="q"><div class="qt"><b>' + esc(label) + ".</b> " + zh(q.q) + '</div><div class="built"></div><div class="tokens"></div>' +
       '<div class="row"><button class="btn" type="button" data-a="check">Controleer</button><button class="btn ghost" type="button" data-a="reset">Opnieuw</button></div></div>');
     var built = box.querySelector(".built"), pool = box.querySelector(".tokens"), misses = 0, solved = false;
@@ -109,7 +115,7 @@
     box.querySelector('[data-a="reset"]').addEventListener("click", function () { if (!solved) { reset(); var f = box.querySelector(".fb"); if (f) f.remove(); } });
     box.querySelector('[data-a="check"]').addEventListener("click", function () {
       if (solved) return;
-      var got = Array.prototype.map.call(built.children, function (b) { return b.dataset.v; }).join("");
+      var got = Array.prototype.map.call(built.children, function (b) { return b.dataset.v; }).join(CFG.sep);
       var old = box.querySelector(".fb"); if (old) old.remove();
       if (pool.children.length) { box.appendChild(el('<div class="fb wrong">Gebruik alle blokjes.</div>')); return; }
       if (got === answer) {
@@ -119,14 +125,14 @@
       } else {
         misses++;
         box.appendChild(el('<div class="fb wrong">Nog niet. Kijk naar het patroon bovenaan: wat komt eerst, wat komt achteraan?' +
-          (misses >= 2 ? ' Hint: het begint met <span class="zh">' + esc(q.tokens[0][0] + q.tokens[1][0]) + "</span>." : "") + "</div>"));
+          (misses >= 2 ? ' Hint: het begint met <span class="zh">' + esc(q.tokens[0][0] + CFG.sep + q.tokens[1][0]) + "</span>." : "") + "</div>"));
       }
     });
     return box;
   }
 
   function openWidget(q, onDone, label) {
-    var box = el('<div class="q"><div class="qt"><b>' + esc(label) + ".</b> " + zh(q.q) + '</div><textarea lang="zh" placeholder="Typ je zin in het Chinees"></textarea>' +
+    var box = el('<div class="q"><div class="qt"><b>' + esc(label) + ".</b> " + zh(q.q) + '</div><textarea lang="' + CFG.lang + '" placeholder="Typ je zin in het ' + CFG.language + '"></textarea>' +
       '<div class="row"><button class="btn" type="button">Vergelijk met voorbeeld</button></div></div>');
     var ta = box.querySelector("textarea"), done = false;
     box.querySelector("button").addEventListener("click", function () {
@@ -171,7 +177,7 @@
       return '<div class="ex"><div class="cn">' + esc(x.cn) + " " + sayBtn(x.cn) + '</div><div class="py">' + esc(x.py) + '</div><div class="nl">' + esc(x.nl) + "</div></div>";
     }).join("") + "</div>");
 
-    if (L.vocab && L.vocab.length) h.push(h2("Tien woorden") + '<p class="muted small">Oefenwoorden op ' + esc(level.level) + '-niveau. Dit is geen officiële HSK 3.0-woordenlijst.</p><div class="card"><table class="vocab">' +
+    if (L.vocab && L.vocab.length) h.push(h2("Tien woorden") + '<p class="muted small">Oefenwoorden op ' + esc(level.level) + '-niveau. ' + CFG.listNote + '</p><div class="card"><table class="vocab">' +
       L.vocab.map(function (v) { return '<tr><td class="h">' + esc(v[0]) + " " + sayBtn(v[0]) + '</td><td class="p">' + esc(v[1]) + "</td><td>" + esc(v[2]) + "</td></tr>"; }).join("") + "</table></div>");
 
     h.push(h2("Dialoog") + '<div class="card dlg">' + L.dialogue.map(function (d) {
@@ -233,7 +239,7 @@
     var h = ["<h1>Herhalen</h1><p class=\"lead\">Vragen over lessen die je al gehaald hebt, in een nieuwe zin. Eén poging per vraag.</p>"];
     h.push('<div class="toolbar">' + pinyinToggle() + "</div>");
     if (!due.length) {
-      h.push('<div class="card">Nu staat er niets klaar.' + (upcoming.length ? " Volgende herhaling: <b>" + esc(upcoming[0]) + "</b>." : ' Haal eerst een les, bijvoorbeeld <a href="hsk3/les.html?id=01">HSK 3 · les 1</a>.') +
+      h.push('<div class="card">Nu staat er niets klaar.' + (upcoming.length ? " Volgende herhaling: <b>" + esc(upcoming[0]) + "</b>." : ' Haal eerst een les, bijvoorbeeld <a href="' + CFG.first + '">' + esc(CFG.firstLabel) + "</a>.") +
         (learned ? " Geleerd (niet meer herhalen): " + learned + " regels." : "") + "</div>");
       root.innerHTML = h.join(""); return;
     }
@@ -299,7 +305,7 @@
     function words() {
       var withVocab = levels.filter(function (lk) { return window.HSK[lk].lessons.some(function (L) { return L.vocab && L.vocab.length; }); });
       var without = levels.filter(function (lk) { return withVocab.indexOf(lk) < 0; }).map(function (lk) { return window.HSK[lk].level; });
-      return '<input class="search" type="search" id="wsearch" placeholder="Zoek op karakter, pinyin of betekenis">' + withVocab.map(function (lk) {
+      return '<input class="search" type="search" id="wsearch" placeholder="Zoek op ' + CFG.unit + ", " + CFG.rom + ' of betekenis">' + withVocab.map(function (lk) {
         var level = window.HSK[lk];
         return "<h2>" + esc(level.level) + '</h2><div class="card"><table class="vocab">' + level.lessons.map(function (L) {
           return (L.vocab || []).map(function (v) {
@@ -308,7 +314,7 @@
               '</td><td class="les"><a href="' + (level.dir || lk) + "/les.html?id=" + L.id + '">les ' + L.id + "</a></td></tr>";
           }).join("");
         }).join("") + '</table><p class="muted small" id="wnone" hidden>Geen woorden gevonden.</p></div>';
-      }).join("") + (without.length ? '<p class="muted small">Woordenlijsten voor ' + esc(without.join(", ")) + " volgen later.</p>" : "") + '<p class="muted small">Oefenwoorden op niveau. Dit is geen officiële HSK 3.0-woordenlijst.</p>';
+      }).join("") + (without.length ? '<p class="muted small">Woordenlijsten voor ' + esc(without.join(", ")) + " volgen later.</p>" : "") + '<p class="muted small">Oefenwoorden op niveau. ' + CFG.listNote + '</p>';
     }
     function render() {
       var tab = location.hash.indexOf("#woorden") === 0 ? "woorden" : "grammatica";

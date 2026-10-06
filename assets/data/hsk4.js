@@ -32,7 +32,11 @@ window.HSK.hsk4 = {
         { cn: "这本书是在北京买的。", py: "Zhè běn shū shì zài Běijīng mǎi de.", nl: "Dit boek is in Beijing gekocht." },
         { cn: "我不是一个人去的，是跟朋友一起去的。", py: "Wǒ bú shì yí ge rén qù de, shì gēn péngyou yìqǐ qù de.", nl: "Ik ben niet alleen gegaan, ik ben met een vriend gegaan." }
       ],
-      vocab: [],
+      vocab: [
+        ["是……的", "shì……de", "(benadrukt wanneer, waar, hoe)"], ["火车", "huǒchē", "trein"], ["飞机", "fēijī", "vliegtuig"],
+        ["风景", "fēngjǐng", "landschap, uitzicht"], ["路上", "lù shang", "onderweg"], ["毕业", "bìyè", "afstuderen"],
+        ["认识", "rènshi", "(leren) kennen"], ["网上", "wǎng shang", "online"], ["地铁", "dìtiě", "metro"], ["自行车", "zìxíngchē", "fiets"]
+      ],
       dialogue: [
         ["A", "你是什么时候到上海的？", "Nǐ shì shénme shíhou dào Shànghǎi de?", "Wanneer ben je in Shanghai aangekomen?"],
         ["B", "我是上个星期五到的。", "Wǒ shì shàng ge xīngqīwǔ dào de.", "Vorige week vrijdag."],
@@ -92,7 +96,11 @@ window.HSK.hsk4 = {
         { cn: "我连一个字也看不懂。", py: "Wǒ lián yí ge zì yě kàn bu dǒng.", nl: "Ik begrijp er niet eens één karakter van." },
         { cn: "这个问题连老师也不会回答。", py: "Zhège wèntí lián lǎoshī yě bú huì huídá.", nl: "Zelfs de leraar kan deze vraag niet beantwoorden." }
       ],
-      vocab: [],
+      vocab: [
+        ["连", "lián", "(zelfs ...)"], ["加班", "jiābān", "overwerken"], ["周末", "zhōumò", "weekend"],
+        ["邻居", "línjū", "buurman, buren"], ["打招呼", "dǎ zhāohu", "groeten"], ["辛苦", "xīnkǔ", "zwaar, vermoeiend"],
+        ["老板", "lǎobǎn", "baas"], ["休息", "xiūxi", "uitrusten"], ["回答", "huídá", "antwoorden"], ["别提了", "bié tí le", "hou op (erover)"]
+      ],
       dialogue: [
         ["A", "你最近怎么样？", "Nǐ zuìjìn zěnmeyàng?", "Hoe gaat het de laatste tijd?"],
         ["B", "别提了，天天加班，连周末都要工作。", "Bié tí le, tiāntiān jiābān, lián zhōumò dōu yào gōngzuò.", "Hou op. Elke dag overwerken. Zelfs in het weekend moet ik werken."],
@@ -150,7 +158,11 @@ window.HSK.hsk4 = {
         { cn: "他不但会说汉语，而且还会写汉字。", py: "Tā búdàn huì shuō Hànyǔ, érqiě hái huì xiě Hànzì.", nl: "Hij kan niet alleen Chinees spreken, maar ook karakters schrijven." },
         { cn: "不但我喜欢这个电影，而且我爸爸也喜欢。", py: "Búdàn wǒ xǐhuan zhège diànyǐng, érqiě wǒ bàba yě xǐhuan.", nl: "Niet alleen ik vind deze film leuk, mijn vader ook." }
       ],
-      vocab: [],
+      vocab: [
+        ["不但", "búdàn", "(niet alleen ...)"], ["而且", "érqiě", "(maar ook ...)"], ["聪明", "cōngming", "slim"],
+        ["热情", "rèqíng", "hartelijk"], ["幽默", "yōumò", "grappig, humoristisch"], ["收入", "shōurù", "inkomen"],
+        ["同事", "tóngshì", "collega"], ["耐心", "nàixīn", "geduld; geduldig"], ["适合", "shìhé", "passen bij"], ["修", "xiū", "repareren"]
+      ],
       dialogue: [
         ["A", "你的新工作怎么样？", "Nǐ de xīn gōngzuò zěnmeyàng?", "Hoe is je nieuwe baan?"],
         ["B", "很好！不但离家近，而且收入也不错。", "Hěn hǎo! Búdàn lí jiā jìn, érqiě shōurù yě búcuò.", "Goed! Hij is niet alleen dicht bij huis, het salaris is ook prima."],
@@ -208,7 +220,11 @@ window.HSK.hsk4 = {
         { cn: "即使你不说，我也知道。", py: "Jíshǐ nǐ bù shuō, wǒ yě zhīdào.", nl: "Zelfs als je het niet zegt, weet ik het." },
         { cn: "即使工作再忙，他也每天运动。", py: "Jíshǐ gōngzuò zài máng, tā yě měi tiān yùndòng.", nl: "Hoe druk zijn werk ook is, hij sport elke dag." }
       ],
-      vocab: [],
+      vocab: [
+        ["即使", "jíshǐ", "(zelfs als ...)"], ["哪怕", "nǎpà", "(zelfs als ...)"], ["比赛", "bǐsài", "wedstrijd"],
+        ["参加", "cānjiā", "meedoen aan"], ["对方", "duìfāng", "tegenpartij"], ["厉害", "lìhai", "sterk, geweldig"],
+        ["输", "shū", "verliezen"], ["放弃", "fàngqì", "opgeven"], ["坚持", "jiānchí", "volhouden"], ["失败", "shībài", "mislukken"]
+      ],
       dialogue: [
         ["A", "明天的比赛你还参加吗？听说会下大雨。", "Míngtiān de bǐsài nǐ hái cānjiā ma? Tīngshuō huì xià dà yǔ.", "Doe je morgen nog mee aan de wedstrijd? Ik hoor dat het hard gaat regenen."],
         ["B", "参加。即使下大雨，我也要去。", "Cānjiā. Jíshǐ xià dà yǔ, wǒ yě yào qù.", "Ja. Zelfs als het hard regent, ga ik."],
@@ -266,7 +282,11 @@ window.HSK.hsk4 = {
         { cn: "除了星期天，我每天都上班。", py: "Chúle xīngqītiān, wǒ měi tiān dōu shàngbān.", nl: "Behalve op zondag werk ik elke dag." },
         { cn: "除了我以外，小李也会开车。", py: "Chúle wǒ yǐwài, Xiǎo Lǐ yě huì kāichē.", nl: "Naast mij kan Xiao Li ook autorijden." }
       ],
-      vocab: [],
+      vocab: [
+        ["除了", "chúle", "(behalve, naast)"], ["以外", "yǐwài", "(behalve)"], ["网球", "wǎngqiú", "tennis"],
+        ["京剧", "jīngjù", "Peking-opera"], ["吵", "chǎo", "lawaaiig"], ["一般", "yìbān", "meestal, gewoonlijk"],
+        ["别人", "biérén", "anderen"], ["法语", "Fǎyǔ", "Frans"], ["西红柿", "xīhóngshì", "tomaat"], ["葡萄", "pútao", "druif"]
+      ],
       dialogue: [
         ["A", "你周末一般做什么？", "Nǐ zhōumò yìbān zuò shénme?", "Wat doe je meestal in het weekend?"],
         ["B", "除了打网球以外，我还喜欢看京剧。", "Chúle dǎ wǎngqiú yǐwài, wǒ hái xǐhuan kàn jīngjù.", "Naast tennissen kijk ik graag Peking-opera."],
@@ -324,7 +344,11 @@ window.HSK.hsk4 = {
         { cn: "这么晚了，我们买不到票了。", py: "Zhème wǎn le, wǒmen mǎi bu dào piào le.", nl: "Het is zo laat, we kunnen geen kaartjes meer krijgen." },
         { cn: "他说得很慢，我听得懂。", py: "Tā shuō de hěn màn, wǒ tīng de dǒng.", nl: "Hij praat langzaam, ik kan het verstaan." }
       ],
-      vocab: [],
+      vocab: [
+        ["得", "de", "(V得 + resultaat: het lukt)"], ["清楚", "qīngchu", "duidelijk"], ["黑板", "hēibǎn", "schoolbord"],
+        ["演出", "yǎnchū", "voorstelling"], ["座位", "zuòwèi", "zitplaats"], ["剧场", "jùchǎng", "theater"],
+        ["声音", "shēngyīn", "geluid, stem"], ["来得及", "láidejí", "op tijd zijn"], ["搬", "bān", "verplaatsen, verhuizen"], ["箱子", "xiāngzi", "koffer, kist"]
+      ],
       dialogue: [
         ["A", "今天晚上的演出，你买到票了吗？", "Jīntiān wǎnshang de yǎnchū, nǐ mǎidào piào le ma?", "Heb je kaartjes voor de voorstelling van vanavond kunnen kopen?"],
         ["B", "没有，太晚了，买不到了。", "Méiyǒu, tài wǎn le, mǎi bu dào le.", "Nee, het was te laat. Ze zijn niet meer te krijgen."],

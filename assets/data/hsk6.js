@@ -31,7 +31,12 @@ window.HSK.hsk6 = {
         { cn: "与其坐出租车，还不如坐地铁，又快又便宜。", py: "Yǔqí zuò chūzūchē, hái bùrú zuò dìtiě, yòu kuài yòu piányi.", nl: "In plaats van een taxi te nemen, neem je beter de metro. Die is sneller en goedkoper." },
         { cn: "与其说他聪明，不如说他努力。", py: "Yǔqí shuō tā cōngming, bùrú shuō tā nǔlì.", nl: "Hij is niet zozeer slim, hij werkt eerder hard." }
       ],
-      vocab: [],
+      vocab: [
+        ["与其", "yǔqí", "(in plaats van)"], ["不如", "bùrú", "(kan beter, liever)"], ["抱怨", "bàoyuàn", "klagen"],
+        ["辞职", "cízhí", "ontslag nemen"], ["犹豫", "yóuyù", "aarzelen, twijfelen"], ["浪费", "làngfèi", "verspillen"],
+        ["干脆", "gāncuì", "gewoon, meteen maar"], ["方向", "fāngxiàng", "richting"], ["后悔", "hòuhuǐ", "spijt hebben"],
+        ["运气", "yùnqi", "geluk"]
+      ],
       dialogue: [
         ["A", "这份工作我做得一点儿也不开心，可是又不敢辞职。", "Zhè fèn gōngzuò wǒ zuò de yìdiǎnr yě bù kāixīn, kěshì yòu bù gǎn cízhí.", "Ik ben helemaal niet blij met dit werk, maar ik durf ook geen ontslag te nemen."],
         ["B", "与其每天抱怨，不如好好想想自己想要什么。", "Yǔqí měitiān bàoyuàn, bùrú hǎohǎo xiǎngxiang zìjǐ xiǎng yào shénme.", "In plaats van elke dag te klagen, kun je beter goed nadenken over wat je zelf wilt."],
@@ -90,7 +95,12 @@ window.HSK.hsk6 = {
         { cn: "孩子非要买那个玩具不可。", py: "Háizi fēi yào mǎi nàge wánjù bùkě.", nl: "Het kind wil per se dat speelgoed kopen." },
         { cn: "要学好汉语，非下功夫不可。", py: "Yào xuéhǎo Hànyǔ, fēi xià gōngfu bùkě.", nl: "Wie goed Chinees wil leren, moet er echt moeite in steken." }
       ],
-      vocab: [],
+      vocab: [
+        ["非", "fēi", "(met 不可: moet echt)"], ["不可", "bùkě", "(niet kunnen, niet mogen)"], ["严重", "yánzhòng", "ernstig"],
+        ["手术", "shǒushù", "operatie"], ["下功夫", "xià gōngfu", "moeite insteken"], ["脸色", "liǎnsè", "gelaatskleur"],
+        ["陪", "péi", "vergezellen"], ["道歉", "dàoqiàn", "excuses aanbieden"], ["亲自", "qīnzì", "zelf, persoonlijk"],
+        ["玩具", "wánjù", "speelgoed"]
+      ],
       dialogue: [
         ["A", "你脸色这么差，快去医院看看吧。", "Nǐ liǎnsè zhème chà, kuài qù yīyuàn kànkan ba.", "Je ziet er zo slecht uit. Ga snel naar het ziekenhuis."],
         ["B", "没事，休息一下就好了。", "Méi shì, xiūxi yíxià jiù hǎo le.", "Niets aan de hand. Even rusten en het is over."],
@@ -148,7 +158,12 @@ window.HSK.hsk6 = {
         { cn: "这家公司之所以成功，是因为它重视员工。", py: "Zhè jiā gōngsī zhīsuǒyǐ chénggōng, shì yīnwèi tā zhòngshì yuángōng.", nl: "Dit bedrijf is succesvol omdat het zijn personeel belangrijk vindt." },
         { cn: "他之所以没来，是因为身体不舒服。", py: "Tā zhīsuǒyǐ méi lái, shì yīnwèi shēntǐ bù shūfu.", nl: "Hij is niet gekomen omdat hij zich niet goed voelde." }
       ],
-      vocab: [],
+      vocab: [
+        ["之所以", "zhīsuǒyǐ", "(de reden dat)"], ["由于", "yóuyú", "(doordat, vanwege)"], ["重视", "zhòngshì", "belangrijk vinden"],
+        ["员工", "yuángōng", "werknemer, personeel"], ["吸引", "xīyǐn", "aantrekken"], ["独特", "dútè", "uniek, bijzonder"],
+        ["排队", "páiduì", "in de rij staan"], ["游客", "yóukè", "toerist"], ["取消", "qǔxiāo", "afgelasten"],
+        ["选择", "xuǎnzé", "kiezen"]
+      ],
       dialogue: [
         ["A", "这家小饭馆每天都排长队，为什么？", "Zhè jiā xiǎo fànguǎn měitiān dōu pái cháng duì, wèi shénme?", "Bij dit kleine restaurant staat elke dag een lange rij. Hoe komt dat?"],
         ["B", "它之所以吸引这么多人，是因为老板做的菜很独特。", "Tā zhīsuǒyǐ xīyǐn zhème duō rén, shì yīnwèi lǎobǎn zuò de cài hěn dútè.", "Het trekt zoveel mensen omdat de eigenaar heel bijzondere gerechten maakt."],
@@ -207,7 +222,12 @@ window.HSK.hsk6 = {
         { cn: "一旦发生火灾，大家就要马上离开大楼。", py: "Yídàn fāshēng huǒzāi, dàjiā jiù yào mǎshàng líkāi dàlóu.", nl: "Als er brand uitbreekt, moet iedereen meteen het gebouw verlaten." },
         { cn: "习惯一旦养成，就很难改变。", py: "Xíguàn yídàn yǎngchéng, jiù hěn nán gǎibiàn.", nl: "Als een gewoonte er eenmaal is, is ze moeilijk te veranderen." }
       ],
-      vocab: [],
+      vocab: [
+        ["一旦", "yídàn", "(zodra, als ... eenmaal)"], ["火灾", "huǒzāi", "brand"], ["养成", "yǎngchéng", "aankweken (gewoonte)"],
+        ["密码", "mìmǎ", "wachtwoord"], ["泄露", "xièlòu", "uitlekken"], ["后果", "hòuguǒ", "(slecht) gevolg"],
+        ["信任", "xìnrèn", "vertrouwen"], ["恢复", "huīfù", "herstellen"], ["错过", "cuòguò", "missen (kans)"],
+        ["秘密", "mìmì", "geheim"]
+      ],
       dialogue: [
         ["A", "你的密码太简单了，最好改一下。", "Nǐ de mìmǎ tài jiǎndān le, zuìhǎo gǎi yíxià.", "Je wachtwoord is te simpel. Je kunt het beter even veranderen."],
         ["B", "有那么严重吗？", "Yǒu nàme yánzhòng ma?", "Is het zo erg?"],
@@ -267,7 +287,12 @@ window.HSK.hsk6 = {
         { cn: "你的想法固然有道理，可是现在很难实现。", py: "Nǐ de xiǎngfǎ gùrán yǒu dàolǐ, kěshì xiànzài hěn nán shíxiàn.", nl: "Je idee is weliswaar redelijk, maar het is nu moeilijk uit te voeren." },
         { cn: "坐飞机固然快，坐火车也不错。", py: "Zuò fēijī gùrán kuài, zuò huǒchē yě búcuò.", nl: "Vliegen is natuurlijk snel, maar de trein is ook prima." }
       ],
-      vocab: [],
+      vocab: [
+        ["固然", "gùrán", "(weliswaar)"], ["效果", "xiàoguǒ", "effect, resultaat"], ["忽视", "hūshì", "verwaarlozen, negeren"],
+        ["实现", "shíxiàn", "verwezenlijken"], ["有道理", "yǒu dàolǐ", "redelijk, terecht"], ["收入", "shōurù", "inkomen"],
+        ["承认", "chéngrèn", "toegeven"], ["稳定", "wěndìng", "stabiel"], ["缺点", "quēdiǎn", "nadeel, zwakte"],
+        ["天赋", "tiānfù", "talent"]
+      ],
       dialogue: [
         ["A", "那家公司给我的工资比现在高很多。", "Nà jiā gōngsī gěi wǒ de gōngzī bǐ xiànzài gāo hěn duō.", "Dat bedrijf biedt me veel meer salaris dan nu."],
         ["B", "工资高固然好，但你考虑过别的方面吗？", "Gōngzī gāo gùrán hǎo, dàn nǐ kǎolǜguo bié de fāngmiàn ma?", "Een hoog salaris is natuurlijk fijn, maar heb je over andere dingen nagedacht?"],
@@ -326,7 +351,12 @@ window.HSK.hsk6 = {
         { cn: "他虽然没复习，但也不至于不及格。", py: "Tā suīrán méi fùxí, dàn yě bú zhìyú bù jígé.", nl: "Hij heeft niet geleerd, maar hij zal heus niet zakken." },
         { cn: "你们只是吵了一架，至于分手吗？", py: "Nǐmen zhǐ shì chǎole yí jià, zhìyú fēnshǒu ma?", nl: "Jullie hebben alleen ruzie gehad. Is uit elkaar gaan nou nodig?" }
       ],
-      vocab: [],
+      vocab: [
+        ["不至于", "bú zhìyú", "(zo erg wordt het niet)"], ["而已", "éryǐ", "(meer niet, slechts)"], ["住院", "zhùyuàn", "opgenomen worden"],
+        ["及格", "jígé", "slagen (toets)"], ["吵架", "chǎojià", "ruzie maken"], ["开除", "kāichú", "ontslaan"],
+        ["焦虑", "jiāolǜ", "gespannen, angstig"], ["夸张", "kuāzhāng", "overdrijven"], ["分手", "fēnshǒu", "uit elkaar gaan"],
+        ["航班", "hángbān", "vlucht"]
+      ],
       dialogue: [
         ["A", "我今天在会上说错了一句话，老板会不会开除我？", "Wǒ jīntiān zài huì shang shuōcuòle yí jù huà, lǎobǎn huì bu huì kāichú wǒ?", "Ik zei vandaag in de vergadering iets verkeerds. Zou de baas me ontslaan?"],
         ["B", "只是一句话而已，不至于吧。", "Zhǐ shì yí jù huà éryǐ, bú zhìyú ba.", "Het was maar één zin. Zo erg zal het niet zijn."],
