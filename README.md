@@ -20,3 +20,5 @@ Nieuw niveau toevoegen: `assets/data/hsk4.js` + map `hsk4/` (kopie van `hsk3/` m
 en het script toevoegen aan `herhaling.html`.
 
 Woorden zijn oefenwoorden op niveau, geen officiële HSK 3.0-lijst. Geen officiële examenvragen of scores.
+
+Na een wijziging in `assets/`: verhoog `?v=N` in de HTML-bestanden, anders laden browsers tot 10 minuten de oude versie.
