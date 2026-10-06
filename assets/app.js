@@ -153,12 +153,13 @@
     h.push('<p class="muted small"><a href="./">' + esc(level.level) + "</a> · les " + (idx + 1) + " van " + level.lessons.length + "</p>");
     h.push("<h1>" + zh(L.id + " " + L.title) + "</h1><p class=\"lead\">" + zh(L.sub) + "</p>");
     h.push('<div class="toolbar">' + pinyinToggle() + "<span>· ongeveer 15 minuten · Leren → Oefenen → Herhalen</span></div>");
-    var due = dueRules().length;
+    var due = dueRules().length, sec = 0;
+    function h2(t) { sec++; return "<h2>" + sec + ". " + t + "</h2>"; }
     if (due) h.push('<div class="card">Er staan <b>' + due + '</b> herhalingsvragen klaar. <a href="../herhaling.html">Eerst herhalen</a></div>');
 
-    h.push("<h2>1. Gok eerst</h2><p class=\"muted small\">Nog geen uitleg gehad? Juist. Gokken telt niet mee, maar je onthoudt de uitleg daarna beter.</p><div id=\"guess\"></div>");
+    h.push(h2("Gok eerst") + "<p class=\"muted small\">Nog geen uitleg gehad? Juist. Gokken telt niet mee, maar je onthoudt de uitleg daarna beter.</p><div id=\"guess\"></div>");
 
-    h.push("<h2>2. Het idee</h2><p>" + zh(L.problem) + "</p>");
+    h.push(h2("Het idee") + "<p>" + zh(L.problem) + "</p>");
     h.push('<div class="pattern">' + L.pattern.map(function (b) {
       return '<div class="blk c' + b.c + (b.key ? " key" : "") + '"><span class="l">' + esc(b.l || " ") + '</span><span class="v">' + esc(b.v) + "</span></div>";
     }).join("") + "</div>");
@@ -166,18 +167,18 @@
     h.push("<ul>" + L.rules.map(function (r) { return "<li>" + zh(r) + "</li>"; }).join("") + "</ul>");
     h.push('<p class="pitfall"><b>Let op:</b> ' + zh(L.pitfall) + "</p>");
 
-    h.push('<h2>3. Voorbeelden</h2><div class="card">' + L.examples.map(function (x) {
+    h.push(h2("Voorbeelden") + '<div class="card">' + L.examples.map(function (x) {
       return '<div class="ex"><div class="cn">' + esc(x.cn) + " " + sayBtn(x.cn) + '</div><div class="py">' + esc(x.py) + '</div><div class="nl">' + esc(x.nl) + "</div></div>";
     }).join("") + "</div>");
 
-    h.push('<h2>4. Tien woorden</h2><p class="muted small">Oefenwoorden op HSK 3-niveau. Dit is geen officiële HSK 3.0-woordenlijst.</p><div class="card"><table class="vocab">' +
+    if (L.vocab && L.vocab.length) h.push(h2("Tien woorden") + '<p class="muted small">Oefenwoorden op ' + esc(level.level) + '-niveau. Dit is geen officiële HSK 3.0-woordenlijst.</p><div class="card"><table class="vocab">' +
       L.vocab.map(function (v) { return '<tr><td class="h">' + esc(v[0]) + " " + sayBtn(v[0]) + '</td><td class="p">' + esc(v[1]) + "</td><td>" + esc(v[2]) + "</td></tr>"; }).join("") + "</table></div>");
 
-    h.push('<h2>5. Dialoog</h2><div class="card dlg">' + L.dialogue.map(function (d) {
+    h.push(h2("Dialoog") + '<div class="card dlg">' + L.dialogue.map(function (d) {
       return '<div class="ex"><div class="cn"><span class="who">' + d[0] + "</span>" + esc(d[1]) + " " + sayBtn(d[1]) + '</div><div class="py">' + esc(d[2]) + '</div><div class="nl">' + esc(d[3]) + "</div></div>";
     }).join("") + "</div>");
 
-    h.push('<h2>6. Oefenen</h2><p class="muted small">Eén vraag tegelijk. Fout? Lees de uitleg en probeer opnieuw.</p><div id="qs"></div><div id="result"></div>');
+    h.push(h2("Oefenen") + '<p class="muted small">Eén vraag tegelijk. Fout? Lees de uitleg en probeer opnieuw.</p><div id="qs"></div><div id="result"></div>');
 
     var nav = '<div class="pager">' + (idx > 0 ? '<a href="les.html?id=' + level.lessons[idx - 1].id + '">← ' + zh(level.lessons[idx - 1].title) + "</a>" : "<span></span>") +
       (idx < level.lessons.length - 1 ? '<a href="les.html?id=' + level.lessons[idx + 1].id + '">' + zh(level.lessons[idx + 1].title) + " →</a>" : '<a href="./">Terug naar overzicht →</a>') + "</div>";
@@ -215,7 +216,7 @@
     var out = [];
     Object.keys(window.HSK).forEach(function (lk) {
       window.HSK[lk].lessons.forEach(function (L) {
-        L.review.forEach(function (q, ri) { out.push({ key: lk + "-" + L.id + "-r" + ri, q: q, lesson: L, level: window.HSK[lk].level }); });
+        L.review.forEach(function (q, ri) { out.push({ key: lk + "-" + L.id + "-r" + ri, q: q, lesson: L, dir: window.HSK[lk].dir || lk }); });
       });
     });
     return out;
@@ -248,7 +249,7 @@
         } else { r.gap = 1; r.next = addDays(today(), 1); }
         save(state);
         w.appendChild(el('<p class="muted small">' + (r.learned ? "Geleerd: deze komt niet meer terug." : "Volgende keer: " + esc(r.next) + ".") +
-          ' Uit <a href="' + (it.level === "HSK 3" ? "hsk3/" : "") + "les.html?id=" + it.lesson.id + '">' + zh(it.lesson.title) + "</a>.</p>"));
+          ' Uit <a href="' + it.dir + "/les.html?id=" + it.lesson.id + '">' + zh(it.lesson.title) + "</a>.</p>"));
       }, { oneShot: true, label: "R" + (i + 1) });
       rv.appendChild(w);
     });
@@ -291,21 +292,23 @@
             L.examples.map(function (x) {
               return '<div class="ex"><div class="cn">' + esc(x.cn) + " " + sayBtn(x.cn) + '</div><div class="py">' + esc(x.py) + '</div><div class="nl">' + esc(x.nl) + "</div></div>";
             }).join("") +
-            '<p class="small"><a href="' + lk + "/les.html?id=" + L.id + '">Naar de les →</a></p></div>';
+            '<p class="small"><a href="' + (level.dir || lk) + "/les.html?id=" + L.id + '">Naar de les →</a></p></div>';
         }).join("");
       }).join("");
     }
     function words() {
-      return '<input class="search" type="search" id="wsearch" placeholder="Zoek op karakter, pinyin of betekenis">' + levels.map(function (lk) {
+      var withVocab = levels.filter(function (lk) { return window.HSK[lk].lessons.some(function (L) { return L.vocab && L.vocab.length; }); });
+      var without = levels.filter(function (lk) { return withVocab.indexOf(lk) < 0; }).map(function (lk) { return window.HSK[lk].level; });
+      return '<input class="search" type="search" id="wsearch" placeholder="Zoek op karakter, pinyin of betekenis">' + withVocab.map(function (lk) {
         var level = window.HSK[lk];
         return "<h2>" + esc(level.level) + '</h2><div class="card"><table class="vocab">' + level.lessons.map(function (L) {
-          return L.vocab.map(function (v) {
+          return (L.vocab || []).map(function (v) {
             var hay = (v[0] + " " + v[1] + " " + v[1].normalize("NFD").replace(/[̀-ͯ]/g, "") + " " + v[2]).toLowerCase();
             return '<tr data-s="' + esc(hay) + '"><td class="h">' + esc(v[0]) + " " + sayBtn(v[0]) + '</td><td class="p">' + esc(v[1]) + "</td><td>" + esc(v[2]) +
-              '</td><td class="les"><a href="' + lk + "/les.html?id=" + L.id + '">les ' + L.id + "</a></td></tr>";
+              '</td><td class="les"><a href="' + (level.dir || lk) + "/les.html?id=" + L.id + '">les ' + L.id + "</a></td></tr>";
           }).join("");
         }).join("") + '</table><p class="muted small" id="wnone" hidden>Geen woorden gevonden.</p></div>';
-      }).join("") + '<p class="muted small">Oefenwoorden op niveau. Dit is geen officiële HSK 3.0-woordenlijst.</p>';
+      }).join("") + (without.length ? '<p class="muted small">Woordenlijsten voor ' + esc(without.join(", ")) + " volgen later.</p>" : "") + '<p class="muted small">Oefenwoorden op niveau. Dit is geen officiële HSK 3.0-woordenlijst.</p>';
     }
     function render() {
       var tab = location.hash.indexOf("#woorden") === 0 ? "woorden" : "grammatica";

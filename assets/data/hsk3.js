@@ -3,7 +3,7 @@
 // "review" questions never appear in the lesson itself; they come back on the review page.
 window.HSK = window.HSK || {};
 window.HSK.hsk3 = {
-  level: "HSK 3",
+  level: "HSK 3", dir: "hsk3",
   lessons: [
     {
       id: "01", slug: "ba", title: "De 把-zin", sub: "Zeggen wat je mét iets doet",

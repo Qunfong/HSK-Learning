@@ -11,14 +11,12 @@ Lesopbouw volgt de HSK Tutor-skill (Leren → Oefenen → Herhalen) en de Tutor-
 (één idee per les, gok vóór uitleg, afleiders op basis van echte misvattingen, spaced review).
 
 ## Structuur
-- `assets/data/hsk3.js` – alle HSK 3-lessen als data. Nieuwe les = nieuw object in `lessons`.
-- `assets/app.js` – rendering, oefeningen, voortgang (localStorage), herhaling.
-- `hsk3/` – overzicht en `les.html?id=NN`.
-- `herhaling.html` – herhaalvragen die vandaag klaarstaan.
+- `assets/data/<niveau>.js` - lessen per niveau als data (hsk3, hsk4, hsk5, hsk6, hsk79). Nieuwe les = nieuw object in `lessons`.
+  `vocab` mag voorlopig leeg zijn: de focus ligt op grammatica, woordenlijsten volgen later.
+- `assets/app.js` - rendering, oefeningen, voortgang (localStorage), herhaling, documentatie.
+- `tools/build_pages.py` - genereert alle HTML-pagina's. Nieuw niveau: toevoegen aan `LEVELS` en opnieuw draaien.
+- `tools/validate.js` - controleert de lesdata: `node tools/validate.js assets/data/*.js`.
 
-Nieuw niveau toevoegen: `assets/data/hsk4.js` + map `hsk4/` (kopie van `hsk3/` met `data-level="hsk4"`),
-en het script toevoegen aan `herhaling.html`.
+Na een wijziging in `assets/`: verhoog `V` in `tools/build_pages.py` en draai het script, anders laden browsers tot 10 minuten de oude versie.
 
 Woorden zijn oefenwoorden op niveau, geen officiële HSK 3.0-lijst. Geen officiële examenvragen of scores.
-
-Na een wijziging in `assets/`: verhoog `?v=N` in de HTML-bestanden, anders laden browsers tot 10 minuten de oude versie.
