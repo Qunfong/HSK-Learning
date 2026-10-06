@@ -270,10 +270,69 @@
       }).join("") + "</ol>";
   }
 
+  // ---------- documentation: all grammar and words ----------
+  function docsPage(root) {
+    var levels = Object.keys(window.HSK);
+    function patternHtml(L) {
+      return '<div class="pattern">' + L.pattern.map(function (b) {
+        return '<div class="blk c' + b.c + (b.key ? " key" : "") + '"><span class="l">' + esc(b.l || " ") + '</span><span class="v">' + esc(b.v) + "</span></div>";
+      }).join("") + "</div>";
+    }
+    function grammar() {
+      return levels.map(function (lk) {
+        var level = window.HSK[lk];
+        return "<h2>" + esc(level.level) + '</h2><div class="toc">' + level.lessons.map(function (L) {
+          return '<a href="#g-' + lk + "-" + L.id + '">' + zh(L.title) + "</a>";
+        }).join("") + "</div>" + level.lessons.map(function (L) {
+          return '<div class="card gram" id="g-' + lk + "-" + L.id + '"><h3>' + zh(L.title) + '</h3><p class="muted small">' + zh(L.sub) + "</p>" +
+            patternHtml(L) + '<p class="pattern-cap">' + zh(L.patternCap) + "</p>" +
+            "<ul>" + L.rules.map(function (r) { return "<li>" + zh(r) + "</li>"; }).join("") + "</ul>" +
+            '<p class="pitfall"><b>Let op:</b> ' + zh(L.pitfall) + "</p>" +
+            L.examples.map(function (x) {
+              return '<div class="ex"><div class="cn">' + esc(x.cn) + " " + sayBtn(x.cn) + '</div><div class="py">' + esc(x.py) + '</div><div class="nl">' + esc(x.nl) + "</div></div>";
+            }).join("") +
+            '<p class="small"><a href="' + lk + "/les.html?id=" + L.id + '">Naar de les →</a></p></div>';
+        }).join("");
+      }).join("");
+    }
+    function words() {
+      return '<input class="search" type="search" id="wsearch" placeholder="Zoek op karakter, pinyin of betekenis">' + levels.map(function (lk) {
+        var level = window.HSK[lk];
+        return "<h2>" + esc(level.level) + '</h2><div class="card"><table class="vocab">' + level.lessons.map(function (L) {
+          return L.vocab.map(function (v) {
+            var hay = (v[0] + " " + v[1] + " " + v[1].normalize("NFD").replace(/[̀-ͯ]/g, "") + " " + v[2]).toLowerCase();
+            return '<tr data-s="' + esc(hay) + '"><td class="h">' + esc(v[0]) + " " + sayBtn(v[0]) + '</td><td class="p">' + esc(v[1]) + "</td><td>" + esc(v[2]) +
+              '</td><td class="les"><a href="' + lk + "/les.html?id=" + L.id + '">les ' + L.id + "</a></td></tr>";
+          }).join("");
+        }).join("") + '</table><p class="muted small" id="wnone" hidden>Geen woorden gevonden.</p></div>';
+      }).join("") + '<p class="muted small">Oefenwoorden op niveau. Dit is geen officiële HSK 3.0-woordenlijst.</p>';
+    }
+    function render() {
+      var tab = location.hash.indexOf("#woorden") === 0 ? "woorden" : "grammatica";
+      root.innerHTML = '<h1>Documentatie</h1><p class="lead">Alle grammatica en woorden uit de lessen, op één plek.</p>' +
+        '<div class="toolbar">' + pinyinToggle() + "</div>" +
+        '<nav class="tabs"><a href="#grammatica"' + (tab === "grammatica" ? ' class="on"' : "") + ">Grammatica</a>" +
+        '<a href="#woorden"' + (tab === "woorden" ? ' class="on"' : "") + ">Woorden</a></nav>" +
+        (tab === "woorden" ? words() : grammar());
+      var s = root.querySelector("#wsearch");
+      if (s) s.addEventListener("input", function () {
+        var q = s.value.trim().toLowerCase(), shown = 0;
+        root.querySelectorAll("tr[data-s]").forEach(function (tr) { var ok = !q || tr.dataset.s.indexOf(q) >= 0; tr.hidden = !ok; if (ok) shown++; });
+        root.querySelectorAll("#wnone").forEach(function (p) { p.hidden = shown > 0; });
+      });
+    }
+    window.addEventListener("hashchange", function () {
+      if (location.hash === "#grammatica" || location.hash === "#woorden") render();
+    });
+    render();
+    if (location.hash.indexOf("#g-") === 0) { var t = document.getElementById(location.hash.slice(1)); if (t) t.scrollIntoView(); }
+  }
+
   var root = document.getElementById("app");
   if (!root) return;
   var page = root.dataset.page;
   if (page === "lesson") lessonPage(root);
   else if (page === "review") reviewPage(root);
   else if (page === "level") levelPage(root);
+  else if (page === "docs") docsPage(root);
 })();
