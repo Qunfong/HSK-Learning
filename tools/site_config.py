@@ -1,8 +1,10 @@
 # Site settings for tools/build_pages.py (HSK-Learning). Bump V after changing anything in assets/.
-V = 7
+V = 8
 BRAND, SEAL = "HSK Learning", "汉"
 FOOTER = "Oefenmateriaal, geen officiële HSK-vragen of -scores. Je voortgang staat alleen in deze browser."
 SITE_JS = ""  # app.js defaults are the Chinese site
+SITE_HEAD = ('<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>'
+             '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Noto+Serif+SC:wght@400;600&display=swap">')
 H1 = "Chinees leren voor de HSK, vanaf niveau 3"
 LEAD = ("Grammaticalessen in het Nederlands, met Chinese voorbeelden, pinyin en uitspraak. Elke les: eerst gokken, "
         "dan het idee en de nuance, dan lezen en oefenen. Wat je gehaald hebt, komt later terug om te herhalen.")

@@ -4,38 +4,18 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>HSK Learning</title>
-<link rel="stylesheet" href="assets/style.css?v=7">
+<link rel="stylesheet" href="assets/style.css?v=8">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Noto+Serif+SC:wght@400;600&display=swap">
 </head>
-<body>
+<body data-root="">
 <header class="site"><div class="wrap">
-  <a class="brand" href="index.html"><span class="seal">汉</span> HSK Learning</a>
-  <nav><a href="index.html#niveaus">Niveaus</a><a href="herhaling.html">Herhalen</a><a href="documentatie.html">Documentatie</a></nav>
+  <a class="brand" href="index.html"><span class="seal">汉</span><span class="name">HSK Learning</span></a>
+  <nav><a href="index.html#niveaus" data-nav="leren">Leren</a><a href="herhaling.html" data-nav="herhalen">Herhalen <span class="count" data-due></span></a><a href="documentatie.html" data-nav="grammatica">Grammatica</a><a href="documentatie.html#woorden" data-nav="woorden">Woorden</a></nav>
+  <a class="btn cta" href="index.html#niveaus" data-continue>Ga verder</a>
 </div></header>
 <main class="wrap">
-<h1>Chinees leren voor de HSK, vanaf niveau 3</h1>
-<p class="lead">Grammaticalessen in het Nederlands, met Chinese voorbeelden, pinyin en uitspraak. Elke les: eerst gokken, dan het idee en de nuance, dan lezen en oefenen. Wat je gehaald hebt, komt later terug om te herhalen.</p>
-
-<h2 id="niveaus">Kies je niveau</h2>
-<div class="grid">
-  <a class="card" href="hsk3/"><div class="big">HSK 3</div><p class="muted small zh">把, 被, 比, 过, 着, richting- en resultaatcomplement, 虽然, 因为, 才/就 ...</p><span class="tag ok">15 lessen</span></a>
-  <a class="card" href="hsk4/"><div class="big">HSK 4</div><p class="muted small zh">是……的, 连……都, 不但……而且, 即使, 只有……才, 不管, 一……就 ...</p><span class="tag ok">15 lessen</span></a>
-  <a class="card" href="hsk5/"><div class="big">HSK 5</div><p class="muted small zh">无论, 既然, 宁可, 难道, 否则, 甚至, 何况, 毕竟 ...</p><span class="tag ok">15 lessen</span></a>
-  <a class="card" href="hsk6/"><div class="big">HSK 6</div><p class="muted small zh">与其……不如, 非……不可, 之所以, 一旦, 未必, 难免, 何必, 反而 ...</p><span class="tag ok">15 lessen</span></a>
-  <a class="card" href="hsk7-9/"><div class="big">HSK 7–9</div><p class="muted small zh">鉴于, 以……为, 予以, 乃至, 加以, 务必, 进而, 不乏 ...</p><span class="tag ok">15 lessen</span></a>
-</div>
-
-<h2>Zo werkt een les</h2>
-<div class="card">
-<ol>
-  <li><b>Gok eerst.</b> Eén vraag over het nieuwe patroon, vóór de uitleg. Telt niet mee.</li>
-  <li><b>Het idee.</b> Welk probleem lost het patroon op, een plaatje van de zinsbouw, en de valkuil.</li>
-  <li><b>Dieper.</b> Wanneer wel en niet, het verschil met patronen die erop lijken, en veelgemaakte fouten.</li>
-  <li><b>Voorbeelden, woorden, dialoog en leestekst.</b> Met uitspraakhulp (uit te zetten) en uitspraak via je browser.</li>
-  <li><b>Oefenen.</b> Meerkeuze, invullen, zinnen bouwen en vertalen. Fout? Je krijgt uitleg en probeert opnieuw.</li>
-  <li><b>Herhalen.</b> Na 2 dagen komen nieuwe vragen terug. Goed: de pauze verdubbelt. Fout: morgen opnieuw.</li>
-</ol>
-</div>
-<p>Alle grammatica en woorden op één plek: <a href="documentatie.html">Documentatie</a>. Per niveau is er ook een woordenlijst met flashcards.</p>
+<div id="app" data-page="home"><h1>Chinees leren voor de HSK, vanaf niveau 3</h1><p class="lead">Grammaticalessen in het Nederlands, met Chinese voorbeelden, pinyin en uitspraak. Elke les: eerst gokken, dan het idee en de nuance, dan lezen en oefenen. Wat je gehaald hebt, komt later terug om te herhalen.</p><ul><li><a href="hsk3/">HSK 3</a></li><li><a href="hsk4/">HSK 4</a></li><li><a href="hsk5/">HSK 5</a></li><li><a href="hsk6/">HSK 6</a></li><li><a href="hsk7-9/">HSK 7–9</a></li></ul></div>
+<script>window.HOME = {"h1": "Chinees leren voor de HSK, vanaf niveau 3", "lead": "Grammaticalessen in het Nederlands, met Chinese voorbeelden, pinyin en uitspraak. Elke les: eerst gokken, dan het idee en de nuance, dan lezen en oefenen. Wat je gehaald hebt, komt later terug om te herhalen.", "topics": {"hsk3": "把, 被, 比, 过, 着, richting- en resultaatcomplement, 虽然, 因为, 才/就 ...", "hsk4": "是……的, 连……都, 不但……而且, 即使, 只有……才, 不管, 一……就 ...", "hsk5": "无论, 既然, 宁可, 难道, 否则, 甚至, 何况, 毕竟 ...", "hsk6": "与其……不如, 非……不可, 之所以, 一旦, 未必, 难免, 何必, 反而 ...", "hsk79": "鉴于, 以……为, 予以, 乃至, 加以, 务必, 进而, 不乏 ..."}};</script>
 <footer>Oefenmateriaal, geen officiële HSK-vragen of -scores. Je voortgang staat alleen in deze browser.</footer>
 </main>
-</body></html>
+<script src="assets/data/hsk3.js?v=8"></script><script src="assets/data/hsk4.js?v=8"></script><script src="assets/data/hsk5.js?v=8"></script><script src="assets/data/hsk6.js?v=8"></script><script src="assets/data/hsk79.js?v=8"></script><script src="assets/app.js?v=8"></script></body></html>
