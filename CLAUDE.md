@@ -58,6 +58,7 @@ Made with the `frontend-design` skill (claude-plugins-official). Brief: calm dai
 `assets/app.js`, `assets/style.css`, `tools/build_pages.py`, `tools/validate.js`, `tools/LESSON_SPEC.md` are IDENTICAL in HSK-Learning and Korean-Learning. Change them in one repo, then copy to the other and rebuild both. Site differences live only in `tools/site_config.py`:
 - `SITE_JS` sets `window.SITE` (language, TTS voice, romanization label, word separator for order questions, storage key, pass seal). Chinese values are the defaults in app.js.
 - `SITE_HEAD` loads the fonts and overrides colour tokens (Korean: blue `#2b5a8a`, Noto Serif KR, seal 합).
+- Optional app features switched on per site: `autoRom` (automatic romanization above Hangul, Korean only). Per level, `_level.json` may add `"noRom": true`; extra keys in `_level.json` are passed through to `window.HSK.<key>`.
 
 ## Working on content at scale
 Big content jobs were done with parallel subagents: one agent per 5 lessons, each given LESSON_SPEC.md + the reference lesson `assets/src/hsk3/01-ba.js`, writing one file at a time and validating each file. Agents stall when asked to write very large files in one go - keep each Write to one lesson. After writing, run an "order question audit" pass (add natural `alt` orders, never stiff ones). Spot-check distractors yourself: a wrong option must be truly wrong.

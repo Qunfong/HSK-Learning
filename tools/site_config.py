@@ -1,5 +1,5 @@
 # Site settings for tools/build_pages.py (HSK-Learning). Bump V after changing anything in assets/.
-V = 8
+V = 9
 BRAND, SEAL = "HSK Learning", "汉"
 FOOTER = "Oefenmateriaal, geen officiële HSK-vragen of -scores. Je voortgang staat alleen in deze browser."
 SITE_JS = ""  # app.js defaults are the Chinese site
